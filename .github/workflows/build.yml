@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-
 env:
   GENERAL_FLAGS: "-DRETRO_DISABLE_PLUS=ON -DCMAKE_BUILD_TYPE=Release"
   # Normally you would use $VCPKG_INSTALLATION_PATH, but it's broken...so hardcode C:/vcpkg
@@ -12,7 +11,6 @@ env:
   WIN64_FLAGS: "-DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_PREFIX_PATH=C:/vcpkg/installed/x64-windows-static/"
   # FIXME: For some reason ubuntu enables _FORTIFY_SOURCE by default, so let's override it to prevent IO bugs
   GENERAL_LINUX_FLAGS: "-DCMAKE_CXX_FLAGS='-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0'"
-
 jobs:
   v4-windows:
     runs-on: windows-latest
@@ -58,7 +56,6 @@ jobs:
         with:
           name: v4-windows-x64
           path: artifacts
-
   v4-android:
     runs-on: windows-latest
     steps:
